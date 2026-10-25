@@ -1,0 +1,766 @@
+# SENSORTRUST — ULTRA MASTER UI/UX REFINEMENT PROMPT
+## Final Product Polish • Design-System Unification • Workflow Clarity • Technical Credibility
+
+### PROJECT IDENTITY
+
+**Product:** SensorTrust  
+**Tagline:** Trust the Data. Verify the History.  
+**Event:** IEEE ClimateChain Global Hackathon 2026  
+**Track:** Climate Data & Environmental Monitoring  
+**Current stage:** Phase 2.5 — Frontend UI/UX refinement  
+**Next stage:** Phase 3 — FastAPI backend implementation
+
+You are acting as a principal product designer, senior frontend architect, enterprise UI/UX specialist, accessibility reviewer, and hackathon product-quality evaluator.
+
+Your task is to transform the existing SensorTrust application into an exceptionally polished, coherent, credible, and demonstration-ready climate-tech product.
+
+This is a **refinement of the existing application**, not a new project.
+
+Inspect the real source code and existing rendered interface before editing. Preserve working functionality, existing data contracts, cryptographic logic, anomaly screening, service adapters, and automated tests. Make targeted, high-quality improvements rather than performing an unnecessary rewrite.
+
+The final interface should look deliberately designed, not like a collection of AI-generated screens.
+
+---
+
+# 1. PRIMARY OBJECTIVES
+
+Achieve all of the following:
+
+1. Establish a unified, premium design system across every remaining route.
+2. Improve visual hierarchy, spacing, alignment, typography, and content density.
+3. Make observation submission, investigation, human review, and provenance verification intuitive.
+4. Eliminate unnecessary development artifacts and redundant navigation.
+5. Make all blockchain and cryptographic states technically accurate and transparent.
+6. Improve responsive behavior and accessibility.
+7. Preserve and verify all existing core functionality.
+8. Produce a clean, reliable interface suitable for a live hackathon evaluation.
+
+Do not add features merely to make the application appear more sophisticated.
+
+**Design principle:** clarity over decoration, evidence over claims, consistency over novelty.
+
+# 2. LOCKED TECHNOLOGY STACK
+
+Do not change the established stack:
+
+- React 19
+- TypeScript
+- Vite
+- Tailwind CSS v4
+- Existing shadcn/ui-inspired accessible primitives
+- Preline UI where appropriate and already compatible
+- Google Material Symbols Outlined exclusively for icons
+- Existing RFC 8785 canonical JSON serialization
+- Existing SHA-256 digest computation and verification
+- Existing service adapter and domain contracts
+- Existing Playwright E2E and unit testing setup
+- Antigravity for implementation and verification
+
+### Icon restrictions
+
+Use only Google Material Symbols Outlined through the existing icon implementation.
+
+Do not introduce Lucide, Font Awesome, Bootstrap Icons, emoji-based interface icons, or additional icon libraries.
+
+Do not add unnecessary dependencies.
+
+### Preserve the architecture
+
+Do not replace the router, rebuild the service adapter, rewrite cryptographic functions, or introduce a new state-management library unless a demonstrated defect makes a change essential.
+
+Reuse existing components and design tokens. Consolidate duplicates only when it improves maintainability.
+
+# 3. REMOVE THE PHASE 1 BLUEPRINT FROM THE PRODUCT UI
+
+The existing Phase 1 Blueprint / Technical Architecture Specification page is a development reference, not a core user-facing SensorTrust feature.
+
+Remove it from the application's visible product experience.
+
+### Required changes
+
+- Remove the Phase 1 Blueprint item from desktop navigation.
+- Remove it from mobile navigation and any navigation drawer.
+- Remove its navigation icons, active-state handling, breadcrumbs, and contextual links.
+- Remove the dedicated `/spec` page from user-facing route navigation.
+- Remove the embedded architecture portal from the rendered application.
+- Remove development-oriented references such as “16 deliverables” from normal product-facing UI.
+- Ensure the removed page does not appear in dashboard shortcuts, footers, menus, or empty states.
+- Update any route and navigation tests that depend on the removed page.
+- Ensure `/spec` does not render the old embedded blueprint.
+
+Use the application's existing routing conventions to handle `/spec`. A redirect to the dashboard or a normal not-found page is acceptable. Choose one behavior and test it.
+
+### Preserve development documentation
+
+Do not delete the actual architecture specification, contracts, Solidity source, canonicalization utilities, backend planning notes, or README documentation needed by future implementation.
+
+The distinction is:
+
+- Remove the Blueprint from the **product interface**.
+- Preserve the Blueprint and contracts as **engineering documentation**.
+
+### Final navigation
+
+The main product navigation should contain only these four primary modules:
+
+1. **Dashboard** — environmental observation overview.
+2. **Submit Observation** — PM2.5 data ingestion.
+3. **Reviewer Workspace** — accountable anomaly investigation and decisions.
+4. **Provenance Explorer** — cryptographic record and audit verification.
+
+Observation Details remains an accessible contextual route reached from the dashboard, reviewer queue, and provenance explorer.
+
+Do not create unnecessary top-level navigation entries for technical utilities.
+
+# 4. DESIGN DIRECTION — PREMIUM CLIMATE INTELLIGENCE
+
+Retain the existing visual identity:
+
+- Warm neutral application background around `#FAFAF9`.
+- Forest-green primary color around `#064E3B`.
+- Supporting green around `#047857`.
+- White or near-white content surfaces.
+- Stone and slate neutrals for borders, dividers, and secondary text.
+- Carefully controlled amber, red, and blue/teal for distinct semantic states.
+
+Preserve useful existing tokens when they already work. Do not blindly overwrite the entire stylesheet.
+
+### Desired visual character
+
+The application should feel:
+
+- Professional.
+- Precise.
+- Calm.
+- Data-centric.
+- Trustworthy.
+- Technically mature.
+- Efficient for frequent use.
+- Appropriate for municipal environmental teams, researchers, and data auditors.
+
+Avoid:
+
+- Excessive gradients.
+- Neon green.
+- Glassmorphism.
+- Large decorative background shapes.
+- Heavy shadows on every card.
+- Excessive rounded containers.
+- Huge empty areas.
+- Excessive pill-shaped controls.
+- Unnecessary animations.
+- Marketing-style hero sections inside operational screens.
+- Dense walls of technical text.
+- Randomly different visual styles between pages.
+
+This is an operational data product, not a marketing landing page.
+
+# 5. ESTABLISH A CONSISTENT DESIGN SYSTEM
+
+Audit and refine the existing shared components and global design tokens.
+
+### Typography
+
+Use a consistent type scale for:
+
+- Page titles.
+- Section headings.
+- Card titles.
+- Body text.
+- Form labels.
+- Supporting text.
+- Table metadata.
+- Technical identifiers.
+
+Preserve Inter for the interface and JetBrains Mono for hashes, UUIDs, transaction identifiers, and technical timestamps where appropriate.
+
+Use bold typography selectively. Avoid using monospace styling for every heading or ordinary piece of interface copy.
+
+Make secondary text readable rather than excessively faint.
+
+Use tabular numerals for measurements and KPIs where supported.
+
+### Spacing
+
+Establish a predictable spacing system and apply it consistently.
+
+Standardize:
+
+- Main content gutters.
+- Page-header spacing.
+- Section spacing.
+- Card padding.
+- Form field gaps.
+- Table row height.
+- Button height.
+- Badge alignment.
+- Breadcrumb spacing.
+- Mobile content padding.
+
+Avoid arbitrary spacing values and different alignment rules on each page.
+
+### Borders and surfaces
+
+Use subtle borders to establish structure. Use shadows sparingly.
+
+Create a clear distinction between:
+
+- Application background.
+- Primary content surfaces.
+- Secondary information panels.
+- Interactive controls.
+- Selected or active items.
+- Validation and error states.
+
+Avoid wrapping every small piece of information inside its own card.
+
+### Shared component refinement
+
+Inspect and reuse the existing:
+
+- AppShell.
+- Desktop navigation.
+- Mobile navigation.
+- PageHeader.
+- MetricCard.
+- StatusBadge.
+- SeverityBadge.
+- SampleDataNotice.
+- CopyDigest.
+- Form fields and validation messages.
+- Loading, empty, and error states.
+- Audit timeline components.
+
+Do not create duplicate components for functionality that already exists.
+
+All pages must feel as though they belong to the same application.
+
+# 6. APPLICATION SHELL AND NAVIGATION
+
+Refine the global shell first because it affects every screen.
+
+### Desktop navigation
+
+- Keep the recognizable dark sidebar and forest-green active state.
+- Make all navigation labels and secondary descriptions consistently aligned.
+- Use consistent icon sizes and vertical spacing.
+- Ensure the active state is obvious but not excessively bright.
+- Keep the product identity and tagline compact.
+- Preserve useful network or environment information in the sidebar footer without overwhelming the interface.
+- Remove the Phase 1 Blueprint item completely.
+
+### Mobile navigation
+
+- Use a compact, accessible navigation pattern.
+- Prevent the navigation drawer from covering content unexpectedly.
+- Provide clear open and close actions.
+- Maintain visible focus states and keyboard operation.
+- Ensure the primary actions remain accessible on narrow screens.
+
+### Application header
+
+Standardize page title, supporting description, breadcrumbs where useful, and contextual actions.
+
+Do not force breadcrumbs onto every page when they add no value.
+
+Avoid duplicated page titles, redundant section labels, and multiple competing primary buttons.
+
+# 7. DASHBOARD — `/`
+
+### Objective
+
+A judge or first-time user should understand the current state of environmental observations within a few seconds.
+
+Refine the dashboard in this order:
+
+1. Compact prototype/environment notice.
+2. Clear page heading and one primary submission action.
+3. KPI summary.
+4. Search and status filters.
+5. Recent-observation table.
+
+### KPI cards
+
+Retain the four key metrics:
+
+- Total Ingested.
+- Flagged for Review.
+- Anchored On-Chain.
+- Human Rejected.
+
+Standardize the card layout, label size, number alignment, and supporting description.
+
+Do not exaggerate the metrics or use decorative charts without a clear purpose.
+
+**Critical provenance requirement:** if records are anchored only in the simulated frontend adapter, do not label them as confirmed real blockchain transactions. Use wording such as “Simulated Anchors” or another precise label that matches actual behavior.
+
+When real blockchain integration is implemented later, the label can reflect the actual verified state.
+
+### Observation table
+
+Improve:
+
+- Column alignment.
+- Row spacing.
+- Station name hierarchy.
+- Measurement visibility.
+- Status and severity readability.
+- Timestamp formatting.
+- Hash presentation.
+- Action alignment.
+- Search and filter usability.
+
+Avoid overly tiny technical metadata.
+
+Use a compact, consistent presentation for long UUIDs, hashes, and transaction references. Truncate where necessary, provide a reliable copy action, and expose the complete value through an accessible method.
+
+At mobile widths, use an intentional strategy: responsive stacked records, a compact table, or a bounded horizontal scroll region. Never allow accidental whole-page horizontal overflow.
+
+### Filtering
+
+Keep status filters functional and visually clear.
+
+The active filter must be distinguishable without relying on color alone.
+
+Search must support the intended fields and show a useful empty state when nothing matches.
+
+# 8. SUBMIT OBSERVATION — `/submit`
+
+### Objective
+
+Make the data-entry process clear, trustworthy, and resistant to user error.
+
+Preserve the three logical sections:
+
+1. Core Telemetry & Identifiers.
+2. Location (Quantized Grid).
+3. Sensor Hardware & Calibration.
+
+Refine their hierarchy, spacing, labels, helper text, and input alignment.
+
+### Form requirements
+
+- Keep units visible and unambiguous.
+- Show required-field indicators consistently.
+- Keep related fields together.
+- Ensure disabled fields look intentionally disabled.
+- Make timestamps and UTC handling clear.
+- Explain location quantization concisely.
+- Keep the form readable at desktop and mobile widths.
+
+### Scenario presets
+
+Retain the useful demo presets:
+
+- Load Nominal.
+- Load Spike Sample.
+- Load Invalid.
+
+Style these as secondary demonstration actions rather than competing primary actions.
+
+Explain what each preset does, where useful.
+
+Loading an invalid example should not imply that an invalid observation was successfully submitted.
+
+### Validation and feedback
+
+Make these states unmistakable:
+
+- Missing required fields.
+- Malformed input.
+- Physical-range violation.
+- Invalid or stale timestamp.
+- Duplicate observation ID.
+- Duplicate sensor timestep, where applicable.
+- Successful submission.
+- Unexpected service failure.
+
+Show field-level feedback close to the affected field and summarize major submission failures when necessary.
+
+Preserve entered values after errors whenever appropriate.
+
+Prevent repeated submissions while a request is in progress.
+
+Do not weaken server-ready validation rules to simplify the UI.
+
+# 9. OBSERVATION DETAILS — `/observations/:id`
+
+### Objective
+
+Present one observation as a structured, understandable evidence record.
+
+Use a clear visual sequence:
+
+1. Observation identity and lifecycle status.
+2. PM2.5 measurement summary.
+3. Deterministic validation results.
+4. Anomaly evidence.
+5. Human review history.
+6. Provenance details.
+7. Verification outcome.
+
+### Measurement summary
+
+Make the measurement the primary visual anchor, with its unit, station, observed timestamp, basin, and calibration status clearly arranged.
+
+Avoid oversized whitespace or excessive typography.
+
+### Validation evidence
+
+Present validation gates as compact, consistent rows or panels.
+
+Differentiate passed, failed, and unavailable checks.
+
+Never display a failed validation as a success.
+
+### Anomaly screening
+
+Explain why a record was flagged.
+
+Where supported, display the relevant rate-of-change measurement, time interval, peer comparison, and missing-context state.
+
+Use plain-language explanations alongside technical evidence.
+
+Never imply that an anomaly score proves fraud or falsification.
+
+### Provenance panel
+
+Make the following fields easy to inspect:
+
+- Canonical SHA-256 digest.
+- Provenance state.
+- Block number and transaction reference, if actually available.
+- Verification action.
+- Verification timestamp, if genuinely recorded.
+
+Keep long values readable and copyable.
+
+**Never present a fabricated transaction hash or simulated mining timestamp as a real blockchain artifact.**
+
+### Audit history
+
+Show human decisions and reasons in chronological order where available.
+
+Do not invent review events to fill empty space.
+
+# 10. REVIEWER WORKSPACE — `/reviewer/queue`
+
+### Objective
+
+Make evidence-led decisions easy to understand and difficult to submit accidentally.
+
+Refine the queue into a clear investigation workflow.
+
+### Queue
+
+- Present the queue count accurately.
+- Keep severity filters easy to scan.
+- Make the selected record obvious.
+- Display priority evidence without excessive badges.
+- Provide an understandable empty state.
+
+### Investigation area
+
+Group observation summary, anomaly explanation, validation findings, and relevant peer evidence together.
+
+Keep the decision form visually separate from the evidence.
+
+Do not overwhelm the reviewer with duplicated information already shown elsewhere.
+
+### Decision form
+
+Preserve the three existing decisions:
+
+- Approve.
+- Reject.
+- Request Recalibration.
+
+Keep the required justification rule of at least 10 characters.
+
+Show a clear character count and useful inline feedback.
+
+Prevent accidental double submission.
+
+After a successful decision, show the result and update the interface only after the underlying operation succeeds.
+
+If the current prototype uses simulated reviewer identity, disclose that accurately. Do not suggest that a frontend-only role selector constitutes secure authentication.
+
+Preserve previous decisions and audit history.
+
+# 11. PUBLIC PROVENANCE EXPLORER — `/provenance`
+
+### Objective
+
+Make cryptographic verification the clearest and most compelling demonstration of SensorTrust.
+
+Refine the screen into four distinct areas:
+
+1. Record selection and search.
+2. Original observation and recorded digest.
+3. Chronological provenance timeline.
+4. Candidate payload and independent digest verification.
+
+### Record selection
+
+Keep record selection compact and usable.
+
+Avoid a long strip of oversized pills that forces excessive horizontal scrolling.
+
+On narrow screens, use a responsive selector or bounded scroll region with clear focus behavior.
+
+### Provenance timeline
+
+Use consistent timeline markers, spacing, headings, and timestamps.
+
+Distinguish ingestion, screening, anchoring, and review events.
+
+Never invent an event to make the timeline appear complete.
+
+### Cryptographic verification
+
+Clearly distinguish:
+
+- Original record.
+- Original digest.
+- Candidate record.
+- Candidate digest.
+- Digest match.
+- Digest mismatch.
+- Verification unavailable.
+
+Retain the useful tamper demonstration.
+
+The “Tamper Value (+0.1)” action must modify only the candidate payload, never the original record.
+
+The reset action must restore the candidate to the correct original values.
+
+A failed verification must produce a clear error state, not a success banner.
+
+A digest match proves consistency with the recorded digest. It does not prove that the sensor reading itself is physically correct.
+
+### Prototype and network states
+
+Remove misleading visual claims.
+
+If the app is operating entirely through a local prototype adapter, describe the state as simulated.
+
+Do not show “Confirmed,” “Mined,” “Connected,” or “Immutable” as factual claims about a live network unless the corresponding state has actually been established.
+
+Keep the interface prepared for real blockchain integration without pretending that integration has already occurred.
+
+# 12. PROTOTYPE NOTICE AND STATUS LANGUAGE
+
+The environment notice is useful, but it must be compact, consistent, and informative.
+
+Refine it into a restrained notice that communicates:
+
+- This is a hackathon prototype.
+- Sample records may be synthetic.
+- The current EVM/provenance state is simulated where applicable.
+- Sensitive raw coordinates are not included in public provenance displays.
+
+Avoid repeating the same long disclaimer in every section.
+
+Keep detailed explanations available where users need them.
+
+Use precise status language consistently across the dashboard, detail page, reviewer queue, and provenance explorer.
+
+Suggested distinction:
+
+- **Approved:** human or workflow status.
+- **Flagged:** anomaly screening status.
+- **Pending Review:** awaiting a decision.
+- **Rejected:** human review outcome.
+- **Simulated Anchor:** prototype ledger behavior.
+- **On-Chain Verified:** only after actual verification against the intended contract and network.
+- **Digest Match:** cryptographic comparison result.
+- **Verification Unavailable:** verification could not be performed.
+
+Do not conflate lifecycle status, anomaly severity, human decision, and blockchain status into one badge.
+
+# 13. REMOVE UNNECESSARY VISUAL NOISE
+
+Conduct a final visual cleanup pass.
+
+Look for:
+
+- Duplicate headings.
+- Repeated information.
+- Unnecessary decorative icons.
+- Excessive badge usage.
+- Redundant borders.
+- Overly large card padding.
+- Inconsistent button heights.
+- Inconsistent input heights.
+- Misaligned card titles.
+- Excessive uppercase monospace text.
+- Low-contrast metadata.
+- Oversized technical identifiers.
+- Inconsistent date and time formats.
+- Empty space without purpose.
+- Unnecessary animations.
+- Repeated prototype notices.
+- Horizontal overflow.
+- UI elements that look interactive but do nothing.
+
+Do not remove information essential to auditability or explainability.
+
+The goal is not to make the product minimal at the expense of functionality. It is to make every visible element purposeful.
+
+# 14. RESPONSIVE DESIGN AND ACCESSIBILITY
+
+Inspect the actual application at these viewport widths:
+
+- 320 px.
+- 390 px.
+- 768 px.
+- 1024 px.
+- 1440 px.
+
+Verify:
+
+- No unintended page-level horizontal overflow.
+- Navigation remains usable.
+- Main actions remain visible and accessible.
+- Forms do not become cramped.
+- Tables have an intentional responsive strategy.
+- Hashes remain readable and copyable.
+- The reviewer workflow works on mobile.
+- The provenance timeline remains legible.
+- The Blueprint is absent from every navigation layout.
+- Focus indicators remain visible.
+- Labels and validation messages are accessible.
+- Color is not the only way to communicate status.
+- Icon-only controls have accessible names.
+- Keyboard navigation works through all critical workflows.
+- Reduced-motion preferences are respected.
+
+Do not claim responsive or accessibility compliance solely from inspecting CSS.
+
+Perform actual checks wherever the existing tools allow.
+
+# 15. PRESERVE CORE LOGIC AND SECURITY BOUNDARIES
+
+Do not rewrite or weaken:
+
+- RFC 8785 canonical JSON serialization.
+- SHA-256 computation.
+- Physical validation.
+- Timestamp freshness checks.
+- Duplicate detection.
+- Anomaly screening thresholds.
+- Service adapter contracts.
+- Append-only review-history behavior.
+- Existing unit tests.
+- Existing core E2E assertions.
+
+Do not introduce fake data or fabricated transaction receipts to improve the appearance of the interface.
+
+Do not delete technical documentation merely because the Blueprint page is being removed from the UI.
+
+Do not implement FastAPI or Solidity integration as part of this task. Those belong to the upcoming backend and blockchain phases.
+
+If an existing defect prevents a reliable workflow, investigate it and make the smallest appropriate correction. Document any change to a contract or business rule.
+
+# 16. REQUIRED END-TO-END REGRESSION TESTS
+
+Test the actual application journey:
+
+Dashboard → Submit Spike Sample → Observation Details → Reviewer Queue → Submit Rejection with Reason → Provenance Explorer → Tamper Candidate → Verify Digest Mismatch.
+
+Also test:
+
+- Invalid PM2.5 input.
+- Duplicate observation ID.
+- Invalid timestamp.
+- Short reviewer rationale.
+- Successful reviewer decision.
+- Empty queue.
+- Search with no results.
+- Unknown observation ID.
+- Candidate tampering.
+- Candidate reset.
+- Browser reload and prototype persistence.
+- Simulated network unavailable or failed operation.
+- `/spec` removal or redirect behavior.
+- Navigation with keyboard.
+- Responsive layouts at the required widths.
+
+Update Playwright tests where navigation behavior changes.
+
+Do not remove meaningful test assertions to make the suite pass.
+
+Run:
+
+1. Existing unit tests.
+2. TypeScript checking.
+3. Production build.
+4. Existing Playwright tests.
+5. Additional regression tests for modified behavior.
+
+Report only commands that were actually executed, with accurate pass/fail results.
+
+# 17. IMPLEMENTATION WORKFLOW
+
+Follow this sequence.
+
+**Step 1 — Inspect:** Examine the existing files, components, routes, styles, tests, and current behavior.
+
+**Step 2 — Prioritize:** Identify the most significant visual, usability, consistency, and trust-related defects.
+
+**Step 3 — Refine the design system:** Improve tokens, typography, spacing, shared components, and navigation.
+
+**Step 4 — Polish each screen:** Refine dashboard, submission, details, reviewer queue, and provenance explorer.
+
+**Step 5 — Remove the Blueprint UI:** Remove it from navigation and the rendered product while preserving engineering documentation.
+
+**Step 6 — Test the full journey:** Confirm the core flow and error states still work.
+
+**Step 7 — Inspect responsive behavior:** Verify actual rendered layouts at the specified widths.
+
+**Step 8 — Run regression tests:** Unit tests, type checking, build, and Playwright.
+
+**Step 9 — Report:** Provide a concise implementation summary and all remaining limitations.
+
+Work directly in the existing project. Do not stop after producing a plan or visual mockup.
+
+# 18. FINAL ACCEPTANCE CRITERIA
+
+The task is complete when:
+
+- The four-module navigation is clean and consistent.
+- The Phase 1 Blueprint is no longer part of the user-facing UI.
+- Engineering documentation and contracts remain intact.
+- Every operational page follows one coherent design system.
+- The dashboard is immediately scannable.
+- The submission form is clear and accessible.
+- Observation details explain evidence without overclaiming.
+- Reviewer decisions are deliberate and traceable.
+- The provenance explorer demonstrates digest verification clearly.
+- Simulated and real blockchain states cannot be confused.
+- Mobile layouts are intentional and usable.
+- Core validation, hashing, anomaly, and audit-history behavior remains intact.
+- Existing and updated tests have been executed and their results reported honestly.
+
+# 19. REQUIRED FINAL REPORT
+
+Provide:
+
+1. The most important defects discovered.
+2. The UI and design-system improvements implemented.
+3. The pages and shared components changed.
+4. Confirmation that the Blueprint was removed from the product UI but technical documentation was preserved.
+5. The exact responsive viewports inspected.
+6. Actual unit-test, type-check, build, and Playwright results.
+7. Any unresolved issues or limitations.
+8. A short handoff note for Phase 3.
+
+Do not claim that the UI is production-ready merely because it looks polished.
+
+### FINAL DIRECTION
+
+Make SensorTrust look like a deliberately designed, technically credible environmental data-integrity product.
+
+Preserve the forest-green identity. Improve spacing, hierarchy, alignment, density, and consistency. Remove the unnecessary Blueprint UI. Make provenance states truthful. Keep the existing application functional.
+
+**Do not redesign for novelty. Refine for clarity, trust, usability, and professional quality.**

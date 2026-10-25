@@ -1,0 +1,6 @@
+{
+  "name": "SensorTrust — Climate Data Provenance Architecture",
+  "description": "System Architecture, Technical Blueprint & Frontend Specification for SensorTrust: AI-assisted environmental data integrity, explainable anomaly screening, and tamper-evident blockchain provenance for the IEEE ClimateChain Global Hackathon 2026.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
